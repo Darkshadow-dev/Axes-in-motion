@@ -1,0 +1,17 @@
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\bin\Debug\net10.0-windows\Axes in Motion.exe
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\bin\Debug\net10.0-windows\Axes in Motion.dll
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes_in_Motion.Form1.resources
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.csproj.GenerateResource.cache
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.AssemblyInfoInputs.cache
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.AssemblyInfo.cs
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.csproj.CoreCompileInputs.cache
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.dll
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\refint\Axes in Motion.dll
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.pdb
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\bin\Debug\net10.0-windows\Axes in Motion.deps.json
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\bin\Debug\net10.0-windows\Axes in Motion.runtimeconfig.json
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\bin\Debug\net10.0-windows\Axes in Motion.pdb
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in Motion.genruntimeconfig.cache
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\ref\Axes in Motion.dll
+C:\Users\ahmed\source\repos\Axes in Motion\Axes in Motion\obj\Debug\net10.0-windows\Axes in .03697551.Up2Date

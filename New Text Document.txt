@@ -1,0 +1,125 @@
+--1.	Napraviti bazu podataka 'Skola'. 
+--2.	Napraviti sljedeće tabele: 
+--•	UCENIK (Ime, Prezime, DatumRodjenja, GradRodjenja)
+--•	PREDMET (Naziv, ZaduzeniProfesor)
+--•	OCJENJIVANJE (UcenikID, PredmetID, Ocjena, Datum)
+--3.	Unesite po 3 učenika i 3 predmeta (Matematika, Fizika, Hemija). 
+--4.	Unesite ocjene tako da svaki ucenik ima barem JEDNU ocjenu iz bilo kojeg predmeta. 
+--5.	Unesite jednog učenika koji nema ni jednu ocjenu.
+--6.	Ispišite sve podatke iz tabele Ucenik.
+--7.	Ispišite sve ocjene iz predmeta Matematika (ime, prezime, ocjena).
+--8.	Ispišite sve učenike koji imaju ocjenu 5, zajedno s nazivom predmeta.
+--9.	Ispišite sve ocjene koje je dao određeni profesor (ime učenika, predmet, ocjena, datum).
+--10.	Ispišite sve učenike koji imaju ocjenu 5 iz Matematike ili iz Hemije.
+
+CREATE DATABASE Skola;
+GO
+-- 8:27 9/10
+USE Skola;
+GO
+
+-- Tables
+CREATE TABLE Ucenik
+(
+    Ucid INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    Ime NVARCHAR(20) NOT NULL,
+    Prezime NVARCHAR(20) NOT NULL,
+    Dtmrod DATE,
+    Imegrada NVARCHAR(20) NOT NULL
+);
+GO
+
+CREATE TABLE Predmet
+(
+    PRid INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    Naziv VARCHAR(20) NOT NULL,
+    Prof VARCHAR(20) NOT NULL
+);
+GO
+
+CREATE TABLE Ocjenivanje
+(
+    Ucenikid INT NOT NULL,
+    Predmetid INT NOT NULL,
+    Ocjena INT NOT NULL,
+    Datum DATE,
+    FOREIGN KEY (Ucenikid) REFERENCES Ucenik(Ucid),
+    FOREIGN KEY (Predmetid) REFERENCES Predmet(PRid)
+);
+GO
+
+-- Data
+
+-- 3. Unos 4 ucenika (cetvrti nema ocjene)
+INSERT INTO Ucenik (Ime, Prezime, Dtmrod, Imegrada)
+VALUES
+('Marko', 'Markovic', '2005-07-05', 'Banja Luka'),
+('Ana', 'Anic', '2005-09-05', 'Prijedor'),
+('Petar', 'Petrovic', '2005-07-15', 'Doboj'),
+('Nikola', 'Nikolic', '2005-11-20', 'Sarajevo');
+GO
+
+-- 3. Unos 3 predmeta
+INSERT INTO Predmet (Naziv, Prof)
+VALUES
+('Matematika', 'Milan Milic'),
+('Fizika', 'Jovan Jovic'),
+('Hemija', 'Ivana Ivanic');
+GO
+
+-- 4. Ocjene (prva tri ucenika imaju ocjene)
+INSERT INTO Ocjenivanje (Ucenikid, Predmetid, Ocjena, Datum)
+VALUES
+(1, 1, 5, '2026-10-01'),
+(1, 2, 4, '2026-10-02'),
+(2, 1, 3, '2026-10-03'),
+(2, 3, 5, '2026-10-04'),
+(3, 2, 5, '2026-10-05'),
+(3, 3, 4, '2026-10-06');
+GO
+
+-- 6. Svi podaci iz tabele Ucenik
+SELECT *
+FROM Ucenik;
+GO
+
+-- 7. Sve ocjene iz Matematike
+SELECT U.Ime, U.Prezime, O.Ocjena
+FROM Ucenik U
+INNER JOIN Ocjenivanje O ON U.Ucid = O.Ucenikid
+INNER JOIN Predmet P ON O.Predmetid = P.PRid
+WHERE P.Naziv = 'Matematika';
+GO
+
+-- 8. Svi ucenici koji imaju ocjenu 5 i naziv predmeta
+SELECT U.Ime, U.Prezime, P.Naziv AS Predmet, O.Ocjena
+FROM Ucenik U
+INNER JOIN Ocjenivanje O ON U.Ucid = O.Ucenikid
+INNER JOIN Predmet P ON O.Predmetid = P.PRid
+WHERE O.Ocjena = 5;
+GO
+
+-- 9. Sve ocjene koje je dao odredjeni profesor
+-- Primjer: Milan Milic
+SELECT U.Ime, U.Prezime, P.Naziv AS Predmet,
+       O.Ocjena, O.Datum
+FROM Ucenik U
+INNER JOIN Ocjenivanje O ON U.Ucid = O.Ucenikid
+INNER JOIN Predmet P ON O.Predmetid = P.PRid
+WHERE P.Prof = 'Milan Milic';
+GO
+
+-- 10. Ucenici koji imaju ocjenu 5 iz Matematike ili Hemije
+SELECT DISTINCT U.Ime, U.Prezime
+FROM Ucenik U
+INNER JOIN Ocjenivanje O ON U.Ucid = O.Ucenikid
+INNER JOIN Predmet P ON O.Predmetid = P.PRid
+WHERE O.Ocjena = 5
+AND P.Naziv IN ('Matematika', 'Hemija');
+GO
+--8:48/9/10 
+--Total ~20min
+--Longest Table Ocjenovanje total ~3min
+--Lowest Comments 8:50
+
+--Question da li 'tb' umjesto 'Table' radi
