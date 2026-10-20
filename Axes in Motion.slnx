@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Axes in Motion/Axes in Motion.csproj" />
+  <Project Path="Axes in Motion Server/Axes in Motion Server.csproj" />
+</Solution>
