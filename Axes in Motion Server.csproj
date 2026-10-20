@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Axes_in_Motion_Server</RootNamespace>
+    <SqlClientInstalledDir>C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\ModelBuilder\AutoMLService</SqlClientInstalledDir>
+    <SqlClientRuntimeDir>$(SqlClientInstalledDir)\runtimes\win\lib\net8.0</SqlClientRuntimeDir>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(SqlClientRuntimeDir)\Microsoft.Data.SqlClient.dll')">
+    <Reference Include="Microsoft.Data.SqlClient">
+      <HintPath>$(SqlClientRuntimeDir)\Microsoft.Data.SqlClient.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Azure.Core">
+      <HintPath>$(SqlClientInstalledDir)\Azure.Core.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Azure.Identity">
+      <HintPath>$(SqlClientInstalledDir)\Azure.Identity.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.Identity.Client.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.IdentityModel.Protocols.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Server">
+      <HintPath>$(SqlClientInstalledDir)\Microsoft.SqlServer.Server.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\8.0.31\System.Configuration.ConfigurationManager.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>$(SqlClientInstalledDir)\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching">
+      <HintPath>$(SqlClientRuntimeDir)\System.Runtime.Caching.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Content Include="$(SqlClientInstalledDir)\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll">
+      <Link>Microsoft.Data.SqlClient.SNI.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(SqlClientRuntimeDir)\Microsoft.Data.SqlClient.dll')">
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.3" />
+  </ItemGroup>
+
+</Project>

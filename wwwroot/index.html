@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="Website-Guide.png">
+  <meta name="theme-color" content="#101512">
+  <meta name="description" content="Axes in Motion keeps game-specific player data organized in a SQL Server database, with a simple form and searchable save history.">
+  <title>Axes in Motion — Player data, organized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/site.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Axes in Motion home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>AXES<span class="brand-light"> IN MOTION</span></span>
+      </a>
+      <nav class="nav-links" id="main-navigation" aria-label="Main navigation">
+        <a href="#home" data-page-link>Overview</a>
+        <a href="#purpose" data-page-link>Purpose</a>
+        <a href="#workflow" data-page-link>How it works</a>
+        <a href="#database" data-page-link>Database</a>
+        <a href="#setup" data-page-link>Setup</a>
+        <a href="#resources" data-page-link>Resources</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">☰</span></button>
+      <a class="nav-cta" href="#workflow">Explore the project <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <div class="page active" id="home" data-page-title="Overview" aria-label="Overview page">
+      <section class="hero section-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span> A GAME DATA TRACKER</p>
+          <h1>Player data,<br><em>in motion.</em></h1>
+          <p class="hero-lede">Axes in Motion gives game information one clear place to live. Choose a game, fill in its fields, save a snapshot, and see what changed over time.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#purpose">See what it does <span aria-hidden="true">↓</span></a>
+          <button class="button button-quiet" id="health-button" type="button"><span class="health-indicator" id="health-indicator"></span><span id="health-label">Check SQL + API</span></button>
+          </div>
+          <div class="hero-meta"><span class="mono-tag">WINFORMS CLIENT</span><span class="meta-line"></span><span class="mono-tag">ASP.NET CORE + SQL SERVER</span></div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustration of game data being saved to a database">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="data-card card-top">
+            <div class="card-label"><span class="tiny-square"></span> LATEST SAVE <span class="card-time">JUST NOW</span></div>
+            <div class="game-row"><span class="game-icon">A</span><div><strong>Selected game</strong><small>Player snapshot</small></div><span class="saved-check">✓</span></div>
+            <div class="data-lines"><span><b>PLAYER</b><i>ahmed</i></span><span><b>FIELD</b><i>Saved value</i></span><span><b>HISTORY</b><i>Entry added</i></span></div>
+          </div>
+          <div class="database-node"><div class="db-cylinder"><span></span><span></span><span></span></div><small>SQL<br>SERVER</small></div>
+          <div class="flow-line"><span></span><span></span><span></span></div>
+          <div class="visual-caption"><span class="caption-icon">↳</span><span>Each save becomes a timestamped snapshot,<br>ready to review later.</span></div>
+          <div class="visual-index">01 <span>/</span> DATA FLOW</div>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="Project summary">
+        <div><strong>01</strong><span>One form for<br>game-specific fields</span></div>
+        <div><strong>02</strong><span>Saved values<br>shown right away</span></div>
+        <div><strong>03</strong><span>History stored<br>in SQL Server</span></div>
+        <p>Built for a simple loop:<br><em>enter. save. look back.</em></p>
+      </section>
+      </div>
+
+      <section class="content-section purpose-section page" id="purpose" data-page-title="Purpose" aria-label="Purpose page" hidden>
+        <div class="section-kicker"><span>01</span><span class="kicker-rule"></span><span>THE PURPOSE</span></div>
+        <div class="purpose-layout">
+          <h2>Keep the details.<br><em>Keep the story.</em></h2>
+          <div class="purpose-copy">
+            <p>Game-related information can end up scattered across notes, screenshots, and old messages. Axes in Motion brings those details together in a small desktop tool that is quick to fill in and easy to revisit.</p>
+            <p>Each record is saved with a user name, a game, a save time, and the fields entered. The app shows the current values and earlier saves so a player can review the information without opening a new entry window.</p>
+            <a class="text-link" href="#workflow">Follow the data <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-number">A / 01</span><div class="feature-icon icon-target">◎</div><h3>Fields that fit the game</h3><p>Select a game and enter the information shown for that game directly in the form.</p></article>
+          <article class="feature-card"><span class="feature-number">A / 02</span><div class="feature-icon icon-stack">▤</div><h3>Every save has a place</h3><p>Each submission is stored as a dated snapshot, keeping earlier entries available.</p></article>
+          <article class="feature-card"><span class="feature-number">A / 03</span><div class="feature-icon icon-clock">◷</div><h3>History you can scan</h3><p>See saved fields and records by user, game, and time inside the same app.</p></article>
+        </div>
+      </section>
+
+      <section class="workflow-section page" id="workflow" data-page-title="How it works" aria-label="How it works page" hidden>
+        <div class="section-kicker light-kicker"><span>02</span><span class="kicker-rule"></span><span>HOW IT WORKS</span></div>
+        <div class="workflow-heading"><h2>One clean path<br>from input to insight.</h2><p>The desktop app talks to a small local API. The API writes each entry to SQL Server and returns the saved values and history to the app.</p></div>
+        <div class="steps">
+          <article class="step"><span class="step-index">01</span><div class="step-icon">▦</div><h3>Choose a game</h3><p>Pick a game in the Axes in Motion client to load its data fields.</p><span class="step-foot">DESKTOP CLIENT</span></article>
+          <article class="step"><span class="step-index">02</span><div class="step-icon">⌁</div><h3>Fill it in place</h3><p>Type into the data table. Your current values appear in the preview below.</p><span class="step-foot">INLINE ENTRY</span></article>
+          <article class="step"><span class="step-index">03</span><div class="step-icon">↗</div><h3>Save a snapshot</h3><p>The API sends your entry to the SQL database with its user and game.</p><span class="step-foot">ASP.NET CORE API</span></article>
+          <article class="step"><span class="step-index">04</span><div class="step-icon">◷</div><h3>Review the history</h3><p>The saved entry appears in the current data view and the history list.</p><span class="step-foot">SQL SERVER</span></article>
+        </div>
+        <div class="architecture" aria-label="Application architecture">
+          <span>WINFORMS APP</span><i>→</i><span>HTTP API</span><i>→</i><span>SQL SERVER</span><b>LOCAL DEVELOPMENT FLOW</b>
+        </div>
+      </section>
+
+      <section class="content-section database-section page" id="database" data-page-title="Database" aria-label="Database page" hidden>
+        <div class="section-kicker"><span>03</span><span class="kicker-rule"></span><span>THE DATABASE</span></div>
+        <div class="db-layout">
+          <div><h2>Clear records.<br><em>Useful queries.</em></h2><p class="db-intro">The <code>AxesInMotion</code> database separates users, games, saved snapshots, and each snapshot’s field values. You can inspect the same saved data directly in SQL Server Management Studio.</p><a class="text-link" href="/ViewSavedData.sql" target="_blank" rel="noreferrer">Open the saved-data query <span aria-hidden="true">↗</span></a></div>
+          <div class="query-card">
+            <div class="query-top"><span><i></i><i></i><i></i> SAMPLE QUERY</span><button id="copy-query" type="button" aria-label="Copy SQL query">COPY</button></div>
+            <pre><code id="sql-query">SELECT
+    u.UserName,
+    s.GameName,
+    s.SavedAt,
+    v.FieldName,
+    v.FieldValue
+FROM dbo.EntrySnapshots AS s
+JOIN dbo.Users AS u ON u.UserId = s.UserId
+JOIN dbo.EntryValues AS v ON v.SnapshotId = s.SnapshotId
+ORDER BY s.SavedAt DESC;</code></pre>
+            <div class="query-note"><span>↳</span> Run this in a query window connected to <strong>AxesInMotion</strong>.</div>
+          </div>
+        </div>
+        <div class="table-map">
+          <div><span class="table-icon">▦</span><strong>Users</strong><small>Who saved a record</small></div><b>↔</b>
+          <div><span class="table-icon">▦</span><strong>EntrySnapshots</strong><small>Game + timestamp</small></div><b>↔</b>
+          <div><span class="table-icon">▦</span><strong>EntryValues</strong><small>Field + saved value</small></div>
+        </div>
+      </section>
+
+      <section class="getting-started page" id="setup" data-page-title="Setup" aria-label="Setup page" hidden>
+        <div class="section-kicker light-kicker"><span>04</span><span class="kicker-rule"></span><span>GETTING STARTED</span></div>
+        <div class="getting-layout"><h2>Up and running<br>in four steps.</h2>
+          <ol class="setup-list">
+            <li><span>01</span><div><strong>Create the database</strong><p>Open <code>AxesInMotion.sql</code> in SSMS, connect to your local SQL Server, and execute it once.</p></div></li>
+            <li><span>02</span><div><strong>Start the API</strong><p>Run <code>Start Server.cmd</code> from the project folder. The default address is <code>http://localhost:5080</code>.</p></div></li>
+            <li><span>03</span><div><strong>Open the desktop app</strong><p>Run <code>Axes in Motion</code> in Visual Studio. Confirm the server status shows connected.</p></div></li>
+            <li><span>04</span><div><strong>Save and inspect</strong><p>Select a game, enter a user name and values, save, then open <code>ViewSavedData.sql</code> in SSMS.</p></div></li>
+          </ol>
+        </div>
+        <div class="access-note"><span>i</span><p>SQL Server uses Windows authentication by default. The Windows account running the API needs permission to use the <code>AxesInMotion</code> database.</p></div>
+      </section>
+
+      <section class="resources-section page" id="resources" data-page-title="Resources" aria-label="Resources page" hidden>
+        <div class="section-kicker"><span>05</span><span class="kicker-rule"></span><span>USEFUL LINKS</span></div>
+        <div class="resources-heading"><h2>Keep exploring.</h2><p>Project endpoints and official tools used to build and run Axes in Motion.</p></div>
+        <div class="resource-grid">
+          <a class="resource-link" href="/api/info"><span class="resource-tag">PROJECT API</span><strong>API information</strong><small>Routes and server details <b>↗</b></small></a>
+          <a class="resource-link" href="/health"><span class="resource-tag">PROJECT API</span><strong>SQL + API status</strong><small>Check server and database readiness <b>↗</b></small></a>
+          <a class="resource-link" href="https://www.microsoft.com/sql-server" target="_blank" rel="noreferrer"><span class="resource-tag">DATABASE</span><strong>Microsoft SQL Server</strong><small>Explore the database platform <b>↗</b></small></a>
+          <a class="resource-link" href="https://learn.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms" target="_blank" rel="noreferrer"><span class="resource-tag">DATABASE TOOL</span><strong>SQL Server Management Studio</strong><small>Install or learn about SSMS <b>↗</b></small></a>
+          <a class="resource-link" href="https://visualstudio.microsoft.com/" target="_blank" rel="noreferrer"><span class="resource-tag">DEVELOPMENT</span><strong>Visual Studio</strong><small>Explore the development environment <b>↗</b></small></a>
+          <a class="resource-link" href="https://learn.microsoft.com/aspnet/core/" target="_blank" rel="noreferrer"><span class="resource-tag">DEVELOPMENT</span><strong>ASP.NET Core</strong><small>Learn about the API framework <b>↗</b></small></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>AXES<span class="brand-light"> IN MOTION</span></span></a><p>Game data, saved with a little more direction.</p><a href="#home">BACK TO TOP ↑</a><span class="footer-copy">© <span id="year"></span> AXES IN MOTION Arduino Guide Ⓖ Guidelines</footer>
+  </div>
+</body>
+</html>
